@@ -7,17 +7,19 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <h1>PAGINA INICIAL</h1>
+    <h1>DEVBURGUER</h1>
     <form action="/sugestao" method="GET">
         <div>
-            <label for ="nome">Nome :</label>
-            <input type="text" name="nome" id="nome" required/>
+            <label for ="nome">Nome :</label><br>
+            <input type="text" name="nome" id="nome" required/><br>
         </div>
         <div>
-            <label for ="ingredientes">Ingredientes sugeridos :</label>
-            <textarea type="text" name="ingredientes" id="ingredientes" required></textarea>
+            <label for ="ingredientes">Ingredientes sugeridos :</label><br>
+            <textarea type="text" name="ingredientes" id="ingredientes" required></textarea><br>
         </div>
         <button type="submit">Enviar sugestão de lanche!</button>
     </form>
+    <a href="/contato">Contato</a> |
+    <a href="/api/lanches">Ver Lanches</a>
 </body>
 </html>

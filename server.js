@@ -4,8 +4,6 @@ const path = require("path");
 const app = express();
 const PORT = 3000;
 
-let lastContact = null;
-
 //Middleware
 app.use(express.static(path.join(__dirname,"public")));
 app.use(urlencoded({extended: true}));
@@ -15,26 +13,28 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "views" , "index.html"));
 });
 
-//Rota GET Not Found
-app.get("/not-found", (req, res) => {
-   res.status(404).send("Página não encontrada"); 
-});
+
+//Rota GET Sugestao
+app.get("/sugestao", (req, res)=>{
+
+})
 
 //Rota GET Contato
 app.get("/contato", (req, res) => {
     res.sendFile(path.join(__dirname,"views","contato.html"));
 
 });
+
 //Rota POST Contato
 app.post("/contato", (req, res) => {
-      const { name, email, subject, message } = req.body;
+  const { name, email, subject, message } = req.body;
 
   if (!name || !email || !subject || !message) {
     return res.redirect("/not-found");
   }
 
   res.send(`
-    <h1>Obrigado pelo contato, ${name}!</h1>
+    <h1>Contato recebido, muito obrigado, ${name}!</h1>
     <p><strong>Email:</strong> ${email}</p>
     <p><strong>Assunto:</strong> ${subject}</p>
     <p><strong>Mensagem:</strong> ${message}</p>
@@ -42,27 +42,20 @@ app.post("/contato", (req, res) => {
   `);
 });
 
-app.get("/sugestao", (req, res) => {
-  const { nome, ingredientes } = req.query;
-
-  if (!nome || !ingredientes) {
-    return res.redirect("/not-found");
-  }
-
-  const lista = ingredientes.split(/[ ,]+/);
-  const listaHTML = lista.map(item => `<li>${item}</li>`).join("");
-
-  res.send(`
-    <h1>Sugestão recebida!</h1>
-    <p>Nome: ${nome}</p>
-    <p>Ingredientes:</p>
-    <ul>${listaHTML}</ul>
-    <a href="/">Voltar</a>
-  `);
+//Rota GET Not Found
+app.get("/not-found", (req, res) => {
+   res.status(404).sendFile(path.join(__dirname, "public", "404.html"));
 });
 
-
-
+//Rota Get API Lanches
+  app.get("/api/lanches", (req, res) => {
+       const lanches = [
+           { id: 1, nome: "Hambúrguer", ingredientes: ["carne", "queijo", "pão"] },
+           { id: 2, nome: "Batata Frita", ingredientes: ["batata", "sal", "óleo"] },
+           { id: 3, nome: "Refrigerante", ingredientes: ["água", "açúcar", "gás"] }
+       ];
+       res.json(lanches);
+     });
 
 //Start do Servidor
 app.listen(PORT, () => {

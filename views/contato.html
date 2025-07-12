@@ -7,26 +7,27 @@
     <link href="stylesheet" rel="/css/style.css">
 </head>
 <body>
-    <h1>PAGINA DE CONTATO</h1>
+    <h1>Fale conosco</h1>
     <form action="/contato" method="POST">
         <!--input pro nome-->
-        <label for="name">Nome:</label>
-        <input type="text" name="name" id="name" required/>
+        <label for="name">Nome:</label><br>
+        <input type="text" name="name" id="name" required/><br>
 
         <!--input pro email-->
-        <label for="email">Email:</label>
-        <input type="text" name="email" id="email" required/>
+        <label for="email">Email:</label><br>
+        <input type="email" name="email" id="email" required/><br>
 
         <!--input pro assunto(subject)-->
-        <label for="subject">Assunto:</label>
-        <input type="text" name="subject" id="subject" required/>
+        <label for="subject">Assunto:</label><br>
+        <input type="text" name="subject" id="subject" required/><br>
 
         <!--Usa-se o text area sempre para comentarios-->
-        <label for="message">Mensagem:</label>
-        <textarea type="text" name="message" id="message" required></textarea>
+        <label for="message">Mensagem:</label><br>
+        <textarea name="message" id="message" required></textarea><br>
 
-        <button type="submit">Enviar sugestão</button>
+        <button type="submit">Enviar contato</button>
     </form>
-    <a href="/">Voltar para o início</a>
+    <a href="/">Voltar para o início<br></a>
+    <a href="/api/lanches">Ver Lanches<br></a>
 </body>
 </html>
