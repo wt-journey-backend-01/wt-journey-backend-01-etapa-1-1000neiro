@@ -20,24 +20,49 @@ app.get("/not-found", (req, res) => {
    res.status(404).send("Página não encontrada"); 
 });
 
+//Rota GET Contato
+app.get("/contato", (req, res) => {
+    res.sendFile(path.join(__dirname,"views","contato.html"));
+
+});
 //Rota POST Contato
 app.post("/contato", (req, res) => {
-    lastContact = req.body;
-    res.redirect("/contato-recebido");
+      const { name, email, subject, message } = req.body;
+
+  if (!name || !email || !subject || !message) {
+    return res.redirect("/not-found");
+  }
+
+  res.send(`
+    <h1>Obrigado pelo contato, ${name}!</h1>
+    <p><strong>Email:</strong> ${email}</p>
+    <p><strong>Assunto:</strong> ${subject}</p>
+    <p><strong>Mensagem:</strong> ${message}</p>
+    <a href="/">Voltar para o início</a>
+  `);
 });
 
-//Rota GET Contato
-app.get("/contato-recebido", (req, res) => {
-//Logica para contatos recebidos
-    if(!lastContact){
+app.get("/sugestao", (req, res) => {
+  const { nome, ingredientes } = req.query;
+
+  if (!nome || !ingredientes) {
     return res.redirect("/not-found");
-   }
-   const {name , email} = lastContact;
-   res.send(`
-        <h1>Contato recebido, muito obrigado, ${name}</h1>
-        <p>Email : ${email}</p>
-   `);
+  }
+
+  const lista = ingredientes.split(/[ ,]+/);
+  const listaHTML = lista.map(item => `<li>${item}</li>`).join("");
+
+  res.send(`
+    <h1>Sugestão recebida!</h1>
+    <p>Nome: ${nome}</p>
+    <p>Ingredientes:</p>
+    <ul>${listaHTML}</ul>
+    <a href="/">Voltar</a>
+  `);
 });
+
+
+
 
 //Start do Servidor
 app.listen(PORT, () => {
