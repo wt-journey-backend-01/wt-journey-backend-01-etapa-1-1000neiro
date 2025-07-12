@@ -16,8 +16,21 @@ app.get("/", (req, res) => {
 
 //Rota GET Sugestao
 app.get("/sugestao", (req, res)=>{
+      const { nome, ingredientes } = req.query;
+  if (!nome || !ingredientes) {
+    return res.redirect("/not-found");
+  }
+  const listaIngredientes = ingredientes.split(/[ ,]+/);
 
-})
+  res.send(`
+    <h1>Sugestão recebida!</h1>
+    <p><strong>Nome:</strong> ${nome}</p>
+    <p><strong>Ingredientes:</strong> ${listaIngredientes.join(", ")}</p>
+    <a href="/">Voltar para a página inicial<br></a>
+    <a href="/contato">Página de Contato<br></a>
+  `);
+});
+
 
 //Rota GET Contato
 app.get("/contato", (req, res) => {
