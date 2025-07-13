@@ -1,33 +1,39 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>contato</title>
-    <link href="stylesheet" rel="/css/style.css">
+    <title>Contato</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
-<body>
-    <h1>Fale conosco</h1>
+
+<body id="contato">
+
+    <img src="/images/Contato.png" alt="Logotipo contato" id="Logotipo-Contato">
+    <h1>Fale Conosco!</h1>
     <form action="/contato" method="POST">
         <!--input pro nome-->
         <label for="nome">Nome:</label><br>
-        <input type="text" name="nome" id="nome" required/><br>
+        <input type="text" name="nome" id="nome" placeholder="Digite seu nome" required /><br>
+
 
         <!--input pro email-->
         <label for="email">Email:</label><br>
-        <input type="email" name="email" id="email" required/><br>
+        <input type="email" name="email" id="email" placeholder="Digite seu email" required /><br>
 
         <!--input pro assunto(subject)-->
         <label for="assunto">Assunto:</label><br>
-        <input type="text" name="assunto" id="assunto" required/><br>
+        <input type="text" name="assunto" id="assunto" placeholder="Digite seu assunto" required /><br>
 
         <!--Usa-se o text area sempre para comentarios-->
-        <label for="messagem">Mensagem:</label><br>
-        <textarea name="messagem" id="messagem" required></textarea><br>
+        <label for="mensagem">Mensagem:</label><br>
+        <textarea name="mensagem" id="mensagem" placeholder="Digite sua mensagem" required></textarea><br>
 
         <button type="submit">Enviar contato</button>
     </form>
     <a href="/">Voltar para o início<br></a>
     <a href="/api/lanches">Ver Lanches<br></a>
 </body>
+
 </html>

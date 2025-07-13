@@ -1,25 +1,33 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Devburguer</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
-<body>
-    <h1>DEVBURGUER</h1>
+
+<body id="index">
+    <img src="/images/logo.png" alt="Logotipo Devburguer" id="Logotipo">
+    <h1>BEM VINDO A DEV BURGUER!</h1>
     <form action="/sugestao" method="GET">
         <div>
-            <label for ="nome">Nome :</label><br>
-            <input type="text" name="nome" id="nome" required/><br>
+            <label for="nome">Nome :</label><br>
+            <input type="text" name="nome" id="nome" placeholder="Digite seu nome" required /><br>
         </div>
         <div>
-            <label for ="ingredientes">Ingredientes sugeridos :</label><br>
-            <textarea type="text" name="ingredientes" id="ingredientes" required></textarea><br>
+            <label for="ingredientes">Ingredientes sugeridos :</label><br>
+            <textarea name="ingredientes" id="ingredientes" placeholder="Ingredientes sugeridos : Pão, Alface,Tomate "
+                required></textarea><br>
         </div>
         <button type="submit">Enviar sugestão de lanche!</button>
     </form>
-    <a href="/contato">Contato</a> |
-    <a href="/api/lanches">Ver Lanches</a>
+    <nav>
+        <a href="/contato">Contato</a> |
+        <a href="/api/lanches">Ver Lanches</a>
+    </nav>
+
 </body>
+
 </html>

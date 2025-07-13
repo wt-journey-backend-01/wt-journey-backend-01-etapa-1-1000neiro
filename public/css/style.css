@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Libertinus+Mono&display=swap');
+
+.libertinus-mono-regular {
+    font-family: "Libertinus Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h1,
+a,
+input::placeholder,
+button,
+label {
+    font-family: "Libertinus Mono", monospace;
+
+}
+
+#contato {
+    background-color: #ffb50a;
+}
+
+#index {
+    background-color: #ffb50a;
+}
+
+img {
+    max-width: 50vh;
+    max-height: 50vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: "Libertinus Mono", monospace;
+    background-color: #ffbc04;
+}
+
+img {
+    max-width: 400px;
+    height: 400px;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    gap: 10px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #333;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+textarea {
+    width: 100%;
+    max-width: 100%;
+    min-height: 100px;
+    max-height: 200px;
+    resize: none;
+}
+
+nav a {
+    color: #333;
+    text-decoration: none;
+    font-size: x-large;
+}
+
+nav a:visited {
+    color: #333;
+}
+
+nav a:focus,
+nav a:active {
+    outline: none;
+    color: #333;
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
